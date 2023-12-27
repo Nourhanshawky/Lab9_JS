@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP Lab</title>
+</head>
+<body>
+    
+
+    <script>
+
+
+class Shape {
+constructor(name, sides , sideLength) {
+    this.name = name;
+    this.sides = sides;
+    this.sideLength = sideLength;
+  }
+
+  calcPerimeter(){
+    var per = this.sides * this.sideLength;
+    console.log(`The permimeter of shape ${this.name} is ${per}`)
+  }
+}
+let square = new Shape("Square", 4, 5);
+    square.calcPerimeter(); 
+let triangle = new Shape("triangle", 3, 3);
+    triangle.calcPerimeter(); 
+
+class Square extends Shape {
+        constructor(sideLength){
+        super("Square" , 4 , sideLength)
+        }
+       
+
+    calcArea(){
+
+        var area =Math.pow(this.sideLength ,2);
+        console.log(`The Area of Square is : ${area}`);
+    }
+
+    }
+let sqr = new Square(3);
+ sqr.calcArea();
+ sqr.calcPerimeter();
+
+
+ class Triple{
+    static customName = "Tripler" ;
+    static description ="I triple any number you provide";
+
+
+    static calcTriple(n = 1){
+            return n * 3;
+        }
+ }
+
+ class SquaredTriple extends Triple{
+    static longDescription;
+    static description = "square the triple of any number you provide";
+
+    static calculate(n = 1) {
+     var sqrTriple   = super.calcTriple(n);
+        return sqrTriple * sqrTriple;
+    }
+ }
+
+ console.log(Triple.description); 
+ console.log(Triple.calcTriple()); 
+ console.log(Triple.calcTriple(6)); 
+ console.log(SquaredTriple.calculate(3)); 
+ console.log(SquaredTriple.description);
+ console.log(SquaredTriple.longDescription); 
+ console.log(SquaredTriple.customName); 
+    </script>
+</body>
+</html>
